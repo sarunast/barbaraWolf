@@ -1,7 +1,6 @@
 import React from 'react'
 import PropsTypes from 'prop-types'
 import styled from 'styled-components'
-import Prismic from 'prismic-javascript'
 
 import Layout from '../components/Layout'
 
