@@ -1,8 +1,9 @@
 /* eslint-disable function-paren-newline */
 import React from 'react'
 import PropsTypes from 'prop-types'
-// import styled from 'styled-components'
+import humps from 'lodash-humps'
 
+import Api from '../services/prismic'
 import Layout from '../components/Layout'
 import Gallery from '../components/Gallery'
 
@@ -19,48 +20,15 @@ Painting.propTypes = {
     PropsTypes.shape({
       title: PropsTypes.string.isRequired,
       image: PropsTypes.string.isRequired,
-      id: PropsTypes.string.isRequired,
+      uid: PropsTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 }
 
 Painting.getInitialProps = async function getInitialProps() {
-  return {
-    metaTitle: 'Paintings',
-    metaDescription: 'description',
-    galleries: [
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '1',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '2',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '3',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '4',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '5',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '6',
-      },
-    ],
-  }
+  const paintingsPageData = await Api.getPaintingsPage()
+
+  return humps(paintingsPageData)
 }
 
 export default Painting

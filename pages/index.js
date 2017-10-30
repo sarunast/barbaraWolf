@@ -47,9 +47,9 @@ Index.defaultProps = {
 }
 
 Index.getInitialProps = async function getInitialProps() {
-  const homeData = await Api.getHome()
+  const homePageData = await Api.getHomePage()
 
-  return humps(homeData)
+  return humps(homePageData)
 }
 
 export default Index

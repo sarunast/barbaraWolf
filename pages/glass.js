@@ -1,8 +1,10 @@
 import React from 'react'
 import PropsTypes from 'prop-types'
+import humps from 'lodash-humps'
 
 import Layout from '../components/Layout'
 import Gallery from '../components/Gallery'
+import Api from '../services/prismic'
 
 const Glass = ({ metaTitle, metaDescription, galleries }) => (
   <Layout metaTitle={metaTitle} metaDescription={metaDescription}>
@@ -16,42 +18,9 @@ Glass.propTypes = {
 }
 
 Glass.getInitialProps = async function getInitialProps() {
-  return {
-    metaTitle: 'test',
-    metaDescription: 'description',
-    galleries: [
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '1',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '2',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '3',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '4',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '5',
-      },
-      {
-        title: 'Title',
-        image: '//via.placeholder.com/350x150',
-        id: '6',
-      },
-    ],
-  }
+  const glassPageData = await Api.getGlassPage()
+
+  return humps(glassPageData)
 }
 
 export default Glass
