@@ -15,7 +15,7 @@ const LinkStyle = styled.a`
 
 function Link({ href, children, alt }) {
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} prefetch passHref>
       <LinkStyle alt={alt}>{children}</LinkStyle>
     </NextLink>
   )
