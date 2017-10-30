@@ -3,6 +3,7 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/glass': { page: '/glass' },
+      '/painting': { page: '/painting' },
       '/background': { page: '/background' },
       '/contact': { page: '/contact' },
       '/disclaimer': { page: '/disclaimer' },
