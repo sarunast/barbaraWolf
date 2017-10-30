@@ -1,7 +1,9 @@
 import React from 'react'
 import PropsTypes from 'prop-types'
 import styled from 'styled-components'
+import humps from 'lodash-humps'
 
+import Api from '../services/prismic'
 import Layout from '../components/Layout'
 
 const ImageContainer = styled.div`
@@ -20,13 +22,13 @@ const Image = styled.img`
 `
 
 const Index = ({
-  metaTitle, metaDescription, image, description,
+  metaTitle, metaDescription, image, slogan, imageDescription,
 }) => (
   <Layout metaTitle={metaTitle} metaDescription={metaDescription}>
     <ImageContainer>
-      <Image src={image.url} alt={image.title} />
+      <Image src={image.url} alt={imageDescription} />
     </ImageContainer>
-    <Intro>{description}</Intro>
+    <Intro>{slogan}</Intro>
   </Layout>
 )
 
@@ -35,21 +37,19 @@ Index.propTypes = {
   metaDescription: PropsTypes.string.isRequired,
   image: PropsTypes.shape({
     url: PropsTypes.string.isRequired,
-    title: PropsTypes.string.isRequired,
   }).isRequired,
-  description: PropsTypes.string.isRequired,
+  imageDescription: PropsTypes.string,
+  slogan: PropsTypes.string.isRequired,
+}
+
+Index.defaultProps = {
+  imageDescription: '',
 }
 
 Index.getInitialProps = async function getInitialProps() {
-  return {
-    metaTitle: 'test',
-    metaDescription: 'description',
-    image: {
-      url: '//via.placeholder.com/350x150',
-      title: 'Image',
-    },
-    description: 'Off Target, detail',
-  }
+  const homeData = await Api.getHome()
+
+  return humps(homeData)
 }
 
 export default Index
