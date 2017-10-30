@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline */
 import React from 'react'
 import PropsTypes from 'prop-types'
 import styled from 'styled-components'
@@ -27,7 +28,7 @@ const Item = styled.div`
 const Gallery = ({ galleries }) => (
   <Container>
     {galleries.map(gallery => (
-      <Item key={gallery.id}>
+      <Item key={gallery.uid}>
         <Image src={gallery.image} alt={gallery.title} />
         <p>{gallery.title}</p>
       </Item>
@@ -40,7 +41,7 @@ Gallery.propTypes = {
     PropsTypes.shape({
       title: PropsTypes.string.isRequired,
       image: PropsTypes.string.isRequired,
-      id: PropsTypes.string.isRequired,
+      uid: PropsTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 }
