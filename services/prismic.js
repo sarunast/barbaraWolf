@@ -1,6 +1,8 @@
 import Prismic from 'prismic-javascript'
 import { PRISMIC_ENDPOINT } from '../config'
 
+// Private api methods
+
 function prismicApi() {
   return Prismic.api(PRISMIC_ENDPOINT)
 }
@@ -11,6 +13,8 @@ async function getSingle(type, config = { lang: 'en-gb' }) {
 
   return response.data
 }
+
+// Public methods
 
 function getHomePage() {
   return getSingle('home')
