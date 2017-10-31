@@ -14,6 +14,13 @@ async function getSingle(type, config = { lang: 'en-gb' }) {
   return response.data
 }
 
+async function getByUID(type, uid, config = { lang: 'en-gb' }) {
+  const api = await prismicApi()
+  const response = await api.getByUID(type, uid, config)
+
+  return response.data
+}
+
 // Public methods
 
 function getHomePage() {
@@ -43,14 +50,24 @@ async function getGlassPage() {
   return {
     ...paintings,
     galleries: paintings.galleries.map(gallery => ({
-      uid: gallery.gallery.uid,
       image: gallery.gallery.data.cover_image.url,
       title: gallery.gallery.data.title,
     })),
   }
 }
 
+async function getGalleryPage(uid) {
+  const galleryPageData = await getByUID('gallery', uid)
+  const images = galleryPageData.images.map(({ title, image }) => ({ url: image.url, title }))
+
+  return {
+    ...galleryPageData,
+    images,
+  }
+}
+
 export default {
+  getGalleryPage,
   getPaintingsPage,
   getGlassPage,
   getHomePage,

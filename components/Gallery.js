@@ -1,7 +1,8 @@
-/* eslint-disable function-paren-newline */
+/* eslint-disable function-paren-newline, jsx-a11y/anchor-is-valid */
 import React from 'react'
 import PropsTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from '../routes'
 
 const Image = styled.img`
   width: 130px;
@@ -29,8 +30,12 @@ const Gallery = ({ galleries }) => (
   <Container>
     {galleries.map(gallery => (
       <Item key={gallery.uid}>
-        <Image src={gallery.image} alt={gallery.title} />
-        <p>{gallery.title}</p>
+        <Link to={`/gallery/${gallery.uid}`} passHref >
+          <a>
+            <Image src={gallery.image} alt={gallery.title} />
+            <p>{gallery.title}</p>
+          </a>
+        </Link>
       </Item>
     ))}
   </Container>
