@@ -5,13 +5,16 @@ import { RichText } from 'prismic-reactjs'
 
 import Layout from '../components/Layout'
 import Api from '../services/prismic'
+import RichTextFormat from '../components/RichTextFormat'
 
 const Background = ({
   metaTitle, metaDescription, introduction, vita,
 }) => (
   <Layout metaTitle={metaTitle} metaDescription={metaDescription}>
-    {RichText.render(introduction)}
-    {RichText.render(vita)}
+    <RichTextFormat>
+      {RichText.render(introduction)}
+      {RichText.render(vita)}
+    </RichTextFormat>
   </Layout>
 )
 

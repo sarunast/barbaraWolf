@@ -5,10 +5,13 @@ import { RichText } from 'prismic-reactjs'
 
 import Api from '../services/prismic'
 import Layout from '../components/Layout'
+import RichTextFormat from '../components/RichTextFormat'
 
 const Contact = ({ metaTitle, metaDescription, text }) => (
   <Layout metaTitle={metaTitle} metaDescription={metaDescription}>
-    {RichText.render(text)}
+    <RichTextFormat>
+      {RichText.render(text)}
+    </RichTextFormat>
   </Layout>
 )
 
