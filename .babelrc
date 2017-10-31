@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "next/babel",
+    ["env", {
+      "targets": {
+        "browsers": ["ie >= 11"]
+      }
+    }]
+  ]
+}
