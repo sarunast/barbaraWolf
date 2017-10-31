@@ -29,6 +29,7 @@ const HeaderTitle = styled.h1`
 
 const TitleLink = styled.a`
   color: black;
+  font-weight: 500;
 
   &:hover,
   &:focus {
