@@ -26,15 +26,24 @@ const Item = styled.div`
   flex-direction: column;
 `
 
+const LinkStyle = styled.a`
+  color: white;
+  
+  &:hover,
+  &:focus {
+    color: white;
+  }
+`
+
 const Gallery = ({ galleries }) => (
   <Container>
     {galleries.map(gallery => (
       <Item key={gallery.uid}>
         <Link to={`/gallery/${gallery.uid}`} passHref >
-          <a>
+          <LinkStyle>
             <Image src={gallery.image} alt={gallery.title} />
             <p>{gallery.title}</p>
-          </a>
+          </LinkStyle>
         </Link>
       </Item>
     ))}
