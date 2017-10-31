@@ -67,7 +67,23 @@ async function getGalleryPage(uid) {
   }
 }
 
+function getBackgroundPage() {
+  return getSingle('background')
+}
+
+function getDisclaimerPage() {
+  return getSingle('disclaimer')
+}
+
+function getContactPage() {
+  return getSingle('contact')
+}
+
+
 export default {
+  getBackgroundPage,
+  getDisclaimerPage,
+  getContactPage,
   getGalleryPage,
   getPaintingsPage,
   getGlassPage,
