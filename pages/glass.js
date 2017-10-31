@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline */
 import React from 'react'
 import PropsTypes from 'prop-types'
 import humps from 'lodash-humps'
@@ -15,6 +16,13 @@ const Glass = ({ metaTitle, metaDescription, galleries }) => (
 Glass.propTypes = {
   metaTitle: PropsTypes.string.isRequired,
   metaDescription: PropsTypes.string.isRequired,
+  galleries: PropsTypes.arrayOf(
+    PropsTypes.shape({
+      title: PropsTypes.string.isRequired,
+      image: PropsTypes.string.isRequired,
+      uid: PropsTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 }
 
 Glass.getInitialProps = async function getInitialProps() {

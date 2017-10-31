@@ -50,6 +50,7 @@ async function getGlassPage() {
   return {
     ...paintings,
     galleries: paintings.galleries.map(gallery => ({
+      uid: gallery.gallery.uid,
       image: gallery.gallery.data.cover_image.url,
       title: gallery.gallery.data.title,
     })),
