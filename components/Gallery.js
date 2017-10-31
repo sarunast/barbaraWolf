@@ -28,6 +28,7 @@ const Item = styled.div`
 
 const LinkStyle = styled.a`
   color: white;
+  text-align: center;
   
   &:hover,
   &:focus {
