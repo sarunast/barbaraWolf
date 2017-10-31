@@ -50,14 +50,14 @@ export default function Menu() {
         </List>
       </div>
       <div>
-        <List>
-          <ListItem>
-            <Link href="/">En</Link>
-          </ListItem>
-          <ListItem>
-            <Link href="/de">De</Link>
-          </ListItem>
-        </List>
+        {/* <List> */}
+        {/* <ListItem> */}
+        {/* <Link href="/">En</Link> */}
+        {/* </ListItem> */}
+        {/* <ListItem> */}
+        {/* <Link href="/de">De</Link> */}
+        {/* </ListItem> */}
+        {/* </List> */}
       </div>
     </MenuContainer>
   )
