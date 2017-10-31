@@ -2,6 +2,7 @@ import Prismic from 'prismic-javascript'
 import { PRISMIC_ENDPOINT } from '../config'
 
 // Private api methods
+// TODO move out prismic methods
 
 function prismicApi() {
   return Prismic.api(PRISMIC_ENDPOINT)
@@ -19,6 +20,13 @@ async function getByUID(type, uid, config = { lang: 'en-gb' }) {
   const response = await api.getByUID(type, uid, config)
 
   return response.data
+}
+
+async function getAllByType(type) {
+  const api = await prismicApi()
+  const response = await api.query(Prismic.Predicates.at('document.type', type))
+
+  return response.results
 }
 
 // Public methods
@@ -79,8 +87,8 @@ function getContactPage() {
   return getSingle('contact')
 }
 
-
 export default {
+  getAllByType,
   getBackgroundPage,
   getDisclaimerPage,
   getContactPage,
