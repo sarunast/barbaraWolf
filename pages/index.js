@@ -8,6 +8,7 @@ import Layout from '../components/Layout'
 
 const ImageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 30px;
 `

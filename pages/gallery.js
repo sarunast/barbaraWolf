@@ -13,6 +13,16 @@ const ImageContainer = styled.div`
   align-items: center;
 `
 
+const Img = styled.img`
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+`
+
+const Title = styled.p`
+  margin-bottom: 30px;
+`
+
 const Gallery = ({
   metaTitle, metaDescription, title, images,
 }) => (
@@ -20,8 +30,8 @@ const Gallery = ({
     <h2>{title}</h2>
     {images.map(image => (
       <ImageContainer key={`${image.url} ${image.title}`}>
-        <img src={image.url} alt={image.title} />
-        <p>{image.title}</p>
+        <Img src={image.url} alt={image.title} />
+        <Title>{image.title}</Title>
       </ImageContainer>
     ))}
   </Layout>
